@@ -4,12 +4,15 @@ CARTODB_ZIPS := $(patsubst simplified/%.simplified.shp, cartodb/%.zip, $(NEW_SHA
 
 all : $(CARTODB_ZIPS)
 
-simplified/%.simplified.shp : %.reprojected.shp
+.SECONDARY : $(NEW_SHAPFILES)
+
+reprojected/%.reprojected.shp : %.shp
+	mkdir -p reprojected
+	ogr2ogr $@ $^ -t_srs EPSG:4326
+
+simplified/%.simplified.shp : reprojected/%.reprojected.shp
 	mkdir -p simplified
 	mapshaper $^ -simplify interval=5000 -o $@ force
-
-%.reprojected.shp : %.shp
-	ogr2ogr $@ $^ -t_srs EPSG:4326
 
 cartodb/%.zip : simplified/%.simplified.shp
 	mkdir -p cartodb
