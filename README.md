@@ -18,6 +18,6 @@ sudo apt-get install node npm
 sudo npm -g install mapshaper
 ```
 
-Then download all the NGHIS shapefiles that you want, including unzipping the zip files for individual shapefiles. In other words, all the `*.shp`, `.dbf`, `*.prj` etc., etc., etc., in the same directory as this Makefile.
+Then download all the NGHIS shapefiles that you want, including unzipping the zip files for individual shapefiles. In other words, all the `*.shp`, `*.dbf`, `*.prj` etc., etc., etc., from NHGIS go in the same directory as this Makefile.
 
 Then run `make` and you'll get a directory `simplified` with the simplified shapefiles and `cartodb` with zipfiles of those simplified shapefiles that you can upload to CartoDB.
