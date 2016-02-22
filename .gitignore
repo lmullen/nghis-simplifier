@@ -1,0 +1,11 @@
+*.shp
+*.shx
+*.prj
+*.dbf
+*.zip
+simplified/*
+cartodb/*
+
+*.shp.xml
+*.sbx
+*.sbn
