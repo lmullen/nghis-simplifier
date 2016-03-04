@@ -4,7 +4,7 @@ CARTODB_ZIPS := $(patsubst simplified/%.simplified.shp, cartodb/%.zip, $(NEW_SHA
 
 all : $(CARTODB_ZIPS)
 
-.SECONDARY : $(NEW_SHAPFILES)
+.SECONDARY : $(NEW_SHAPEFILES)
 
 reprojected/%.reprojected.shp : %.shp
 	mkdir -p reprojected
